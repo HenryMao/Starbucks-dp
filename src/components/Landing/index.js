@@ -166,6 +166,9 @@ export default function Landing(props) {
         </TouchableHighlight>
       )}
       <ScrollView showsVerticalScrollIndicator={false}>
+        <Text style={{padding:"3%", borderTopWidth:1, paddingLeft:"2%", fontWeight:"bold"}}>
+          Starbucks Rewards
+        </Text>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           <View style={styles.frame}>
             <TouchableHighlight

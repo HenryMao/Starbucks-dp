@@ -138,7 +138,7 @@ export default function Signup() {
               context.signup({
                 firstname: context.firstname,
                 lastname: context.lastname,
-                email: context.email,
+                email: context.email.toLowerCase(),
                 password: context.password,
               });
             }}>

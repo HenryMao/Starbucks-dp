@@ -37,11 +37,12 @@ const App = () => {
 
   //sign up function to be called in signup component
   const signup = (newUser) => {
+    //checks for correct email format with regex
     const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(regex.test(newUser.email)){
       axios
       .get(
-        `https://5yn7abeso1.execute-api.us-west-1.amazonaws.com/dev/user/${newUser.email}`,
+        `https://5yn7abeso1.execute-api.us-west-1.amazonaws.com/dev/user/${newUser.email.toLowerCase()}`,
       )
       .then((res) => {
         if (res.data.email) {
@@ -70,14 +71,13 @@ const App = () => {
     }else{
       Alert.alert("Please enter a correct email address");
     }
-    
   };
   //login function to be called in login component
   const login = (userinfo) => {
     //retrieving user info from database
     axios
       .get(
-        `https://5yn7abeso1.execute-api.us-west-1.amazonaws.com/dev/user/${userinfo.email}`,
+        `https://5yn7abeso1.execute-api.us-west-1.amazonaws.com/dev/user/${userinfo.email.toLowerCase()}`,
       )
       .then((res) => {
         //check if the password matches what's on the database
